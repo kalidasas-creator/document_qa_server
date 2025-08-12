@@ -73,12 +73,6 @@ cd nestjs_backend_part1
 # Install backend dependencies
 npm install
 
-# Install frontend dependencies
-cd document_rag
-npm install
-cd ..
-```
-
 ### 3. Database Setup
 Create a PostgreSQL database and update the connection settings in `src/core/config/database.config.ts`:
 
@@ -127,15 +121,8 @@ npm run build
 npm run start:prod
 ```
 
-#### Frontend (Angular)
-```bash
-cd document_rag
-ng serve
-```
-
 Your application will be available at:
 - Backend API: http://localhost:3000
-- Frontend: http://localhost:4200
 - API Documentation: http://localhost:3000/api
 
 ## User Roles & Permissions

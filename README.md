@@ -220,17 +220,27 @@ cd document_rag
 ng build --prod
 ```
 
-### Docker (Optional)
-```dockerfile
-# Example Dockerfile
-FROM node:18-alpine
-WORKDIR /app
-COPY package*.json ./
-RUN npm ci --only=production
-COPY dist ./dist
-EXPOSE 3000
-CMD ["npm", "run", "start:prod"]
+### Docker
+
+Build and run the application using Docker:
+
+```bash
+# Build the Docker image
+docker build -t document-qa-server .
+
+# Run the container
+docker run -p 3000:3000 --env-file .env document-qa-server
+
+# Or run with docker-compose (if you have a docker-compose.yml)
+docker-compose up -d
 ```
+
+The Dockerfile uses a multi-stage build for optimization and includes:
+- Node.js 18 Alpine base image for smaller size
+- Production-only dependencies
+- Non-root user for security
+- Health check endpoint
+- Proper caching and layer optimization
 
 ## Contributing
 
